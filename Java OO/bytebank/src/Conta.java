@@ -5,4 +5,10 @@ public class Conta {
 	int numero;
 	String titular;
 	
+	void deposita(double valor) {
+		
+		
+		
+	}
+	
 }
