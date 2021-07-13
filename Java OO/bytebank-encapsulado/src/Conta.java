@@ -1,9 +1,9 @@
 public class Conta {
 	
 	private double saldo;
-	int agencia;
-	int numero;
-	Cliente titular;
+	private int agencia;
+	private int numero;
+	private Cliente titular;
 	
 	public void deposita(double valor) {
 		
@@ -45,6 +45,30 @@ public class Conta {
 	public String getSaldo() {
 		
 		return "O saldo é igual a R$" + saldo;
+		
+	}
+	
+	public int getNumber() {
+		
+		return numero;
+		
+	}
+	
+	public void setNumero(int numero) {
+		
+		this.numero = numero;
+		
+	}
+	
+	public int getAgencia() {
+		
+		return agencia;
+		
+	}
+	
+	public void setAgencia(int agencia) {
+		
+		this.agencia = agencia;
 		
 	}
 	
