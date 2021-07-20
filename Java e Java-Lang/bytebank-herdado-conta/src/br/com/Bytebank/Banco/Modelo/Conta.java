@@ -1,4 +1,4 @@
-package Modelo;
+package br.com.Bytebank.Banco.Modelo;
 
 public abstract class Conta {
 	
