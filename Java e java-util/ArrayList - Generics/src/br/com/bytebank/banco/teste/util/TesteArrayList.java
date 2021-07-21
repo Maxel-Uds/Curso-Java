@@ -8,7 +8,8 @@ public class TesteArrayList {
 
 	public static void main(String[] args) {
 		
-		ArrayList lista = new ArrayList();
+		//Generics
+		ArrayList<Conta> lista = new ArrayList<Conta>();
 		
 		Conta cc1 = new ContaCorrente(22, 11);
 		Conta cc2 = new ContaCorrente(42, 61);
