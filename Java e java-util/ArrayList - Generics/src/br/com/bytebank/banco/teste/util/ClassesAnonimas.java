@@ -29,20 +29,12 @@ public class ClassesAnonimas {
         lista.add(cc3);
         lista.add(cc4);
         
-      //Classe Anônima
-        lista.sort(new Comparator<Conta>() {
-
-        	@Override
-        	public int compare(Conta c1, Conta c2) {
-        		return Integer.compare(c1.getNumber(), c2.getNumber());        		
-        	}
-        	
-        });
+        //Expressão Lambda
+        lista.sort((c1, c2) ->  Integer.compare(c1.getNumber(), c2.getNumber()));
         
-        for(Conta c : lista) {
-        	System.out.println(c);
-        }
-
+        //Expressão Lambda
+        lista.forEach(conta -> System.out.println(conta));
+        
 	}
 
 }
