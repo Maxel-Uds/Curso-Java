@@ -77,6 +77,18 @@ public abstract class Conta {
 		this.agencia = agencia;
 		
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Conta c = (Conta)obj;
+		
+		if(c.agencia == this.agencia && c.numero == this.numero) {
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
 
 	
 }
