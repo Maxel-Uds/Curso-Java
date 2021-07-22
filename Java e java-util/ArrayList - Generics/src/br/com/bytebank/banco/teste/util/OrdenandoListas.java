@@ -1,6 +1,7 @@
 package br.com.bytebank.banco.teste.util;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import br.com.bytebank.banco.modelo.Conta;
@@ -14,7 +15,7 @@ public class OrdenandoListas {
         cc1.deposita(333.0);
 
         Conta cc2 = new ContaCorrente(22, 44);
-        cc2.deposita(444.0);
+        cc2.deposita(330.0);
 
         Conta cc3 = new ContaCorrente(22, 11);
         cc3.deposita(111.0);
@@ -31,11 +32,17 @@ public class OrdenandoListas {
         for(Conta c : lista) {
         	System.out.println(c);
         }
-
-        NumeroDaContaComparator comparator = new NumeroDaContaComparator();  
-        lista.sort(comparator);
         
         System.out.println("---------------");
+//      NumeroDaContaComparator comparator = new NumeroDaContaComparator();  
+        lista.sort(new NumeroDaContaComparator());
+        
+        for(Conta c : lista) {
+        	System.out.println(c);
+        }
+        
+        System.out.println("---------------");
+        Collections.sort(lista);
         
         for(Conta c : lista) {
         	System.out.println(c);
@@ -50,13 +57,17 @@ class NumeroDaContaComparator implements Comparator<Conta> {
 	@Override
 	public int compare(Conta c1, Conta c2) {
 		
-		if(c1.getNumber() < c2.getNumber()) {
-			return -1;
-		} else if(c1.getNumber() > c2.getNumber()) {
-			return 1;
-		} else {
-			return 0;
-		}
+		return Integer.compare(c1.getNumber(), c2.getNumber());
+		
+//		return c1.getNumber() - c2.getNumber();
+		
+//		if(c1.getNumber() < c2.getNumber()) {
+//			return -1;
+//		} else if(c1.getNumber() > c2.getNumber()) {
+//			return 1;
+//		} else {
+//			return 0;
+//		}
 	}
 	
 	
