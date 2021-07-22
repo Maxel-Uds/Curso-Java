@@ -1,5 +1,8 @@
 package br.com.bytebank.banco.teste.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TesteWrappers {
 
 	public static void main(String[] args) {
@@ -15,6 +18,11 @@ public class TesteWrappers {
 		System.out.println(bRef.booleanValue());//Unboxing
 		
 		Number numero = Integer.valueOf(idade);
+		
+		List<Number> lista = new ArrayList<Number>();
+		lista.add(29);
+		lista.add(32.6);
+		lista.add(16.2f);
 
 	}
 
