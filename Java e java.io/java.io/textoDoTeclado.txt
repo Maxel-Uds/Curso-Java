@@ -1,0 +1,2 @@
+Estou testando a escrita em arquivos através do teclado
+Funcionou!!
