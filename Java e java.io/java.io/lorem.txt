@@ -1,8 +1,3 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-Nullam lectus lacus, feugiat non massa vel, gravida iaculis quam. 
-Maecenas laoreet nisl ut erat dictum euismod. 
-Curabitur rhoncus neque nec libero suscipit volutpat. 
-Nunc massa erat, vulputate sit amet semper quis, faucibus ut magna. 
-Duis venenatis at dolor at convallis. 
-Aenean tortor justo, faucibus non nunc sed, molestie tempus nunc. 
-Mauris blandit vel est et commodo. Suspendisse eleifend, erat et tincidunt rutrum, metus velit accumsan magna, vel semper ex mauris ac felis.
+Suspendisse eleifend, erat et tincidunt rutrum, metus velit accumsan magna, vel semper ex mauris ac felis.
+
+Aenean tortor justo, faucibus non nunc sed, molestie tempus nunc.
