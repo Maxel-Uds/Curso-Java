@@ -5,11 +5,14 @@ public class Aluno {
 	private String nome;
 	private int matricula;
 	
-	public Aluno(String nome, int matricula) {
-		this.nome = nome;
-		this.matricula = matricula;
+	public Aluno(String nome, int numeroMatricula) {
+	    if (nome == null) {
+	        throw new NullPointerException("Nome não pode ser nulo");
+	    }
+	    this.nome = nome;
+	    this.matricula = numeroMatricula;
 	}
-
+	
 	public String getNome() {
 		return nome;
 	}

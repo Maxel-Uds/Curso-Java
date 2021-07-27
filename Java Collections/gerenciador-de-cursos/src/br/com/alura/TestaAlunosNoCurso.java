@@ -1,9 +1,9 @@
 package br.com.alura;
 
-public class TestaCursoComAluno {
+public class TestaAlunosNoCurso {
 
 	public static void main(String[] args) {
-
+		
 		Curso javaColecoes = new Curso("Dominando as coleções", "Paulo Silveira");
 		
 		javaColecoes.adiciona(new Aula("Trabalhando com ArrayList", 21));
@@ -18,11 +18,7 @@ public class TestaCursoComAluno {
 		javaColecoes.matricula(a2);
 		javaColecoes.matricula(a3);
 		
-		javaColecoes.getAlunos().forEach(a -> System.out.println(a));
-		
-		Aluno silva = new Aluno("João Silva", 34673);
-		System.out.println(javaColecoes.estaMatriculado(silva));
-
+		System.out.println(javaColecoes.buscaMatriculado(34673));
 	}
 
 }
