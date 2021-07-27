@@ -19,6 +19,17 @@ public class Aluno {
 	}
 	
 	@Override
+	public boolean equals(Object obj) {
+		Aluno aluno = (Aluno)obj;
+		return this.matricula == aluno.getMatricula();
+	}
+	
+	@Override
+	public int hashCode() {
+		return this.matricula;
+	}
+	
+	@Override
 	public String toString() {
 		return this.nome;
 	}

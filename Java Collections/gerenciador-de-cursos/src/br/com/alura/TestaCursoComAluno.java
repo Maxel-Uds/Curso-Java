@@ -19,6 +19,9 @@ Curso javaColecoes = new Curso("Dominando as coleções", "Paulo Silveira");
 		javaColecoes.matricula(a3);
 		
 		javaColecoes.getAlunos().forEach(a -> System.out.println(a));
+		
+		Aluno silva = new Aluno("João Silva", 34673);
+		System.out.println(javaColecoes.estaMatriculado(silva));
 
 	}
 
