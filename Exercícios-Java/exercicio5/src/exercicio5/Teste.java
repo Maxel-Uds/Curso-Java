@@ -7,7 +7,7 @@ public class Teste {
 		ControleHerdado control = new ControleHerdado();
 		
 		control.cadastraCaminhao();
-
+		ControleHerdado.melhorCaminhao();
 	}
 
 }

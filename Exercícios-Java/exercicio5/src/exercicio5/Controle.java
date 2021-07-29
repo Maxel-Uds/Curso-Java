@@ -6,7 +6,7 @@ public class Controle {
 	
 	public static String leString() {
 		Scanner scan = new Scanner(System.in);
-		return scan.next();
+		return scan.nextLine();
 	}
 	
 	public static int leInt() {
