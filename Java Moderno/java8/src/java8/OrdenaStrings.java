@@ -1,8 +1,6 @@
 package java8;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class OrdenaStrings {
@@ -13,28 +11,25 @@ public class OrdenaStrings {
 		palavras.add("alura online");
 		palavras.add("casa do código");
 		palavras.add("caelum");
-		
-		Comparator<String> comparador = new ComparadorPorTamanho();
-		
-		//Collections.sort(palavras, comparador);
-		palavras.sort(comparador);
-		System.out.println(palavras);
+
+		// Comparator<String> comparador = new ComparadorPorTamanho();
+
+		// Collections.sort(palavras, comparador);
+
+//		palavras.sort((s1, s2) -> {
+//			if (s1.length() < s2.length()) {
+//				return -1;
+//			} else if (s1.length() > s2.length()) {
+//				return 1;
+//			} else {
+//				return 0;
+//			}
+//		});
+
+		palavras.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
+
+		palavras.forEach(p -> System.out.println(p));
 
 	}
 
-}
-
-class ComparadorPorTamanho implements Comparator<String> {
-
-	@Override
-	public int compare(String s1, String s2) {
-		if(s1.length() < s2.length()) {
-			return -1;
-		} else if(s1.length() > s2.length()) {
-			return 1;
-		} else {
-			return 0;
-		}
-	}
-	
 }
