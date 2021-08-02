@@ -3,6 +3,7 @@ package java8;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 class Curso {
@@ -47,5 +48,9 @@ public class ExemploCursos {
 		//cursos.stream().filter(c -> c.getAlunos() >= 100).forEach(System.out::println);
 		
 		cursos.stream().filter(c -> c.getAlunos() >= 100).map(Curso::getAlunos).forEach(System.out::println);
+		
+		Optional<Curso> optionalCurso = cursos.stream().filter(c -> c.getAlunos() >= 100).findAny();
+		System.out.println(optionalCurso.orElse(null));
+		
 	}
 }
