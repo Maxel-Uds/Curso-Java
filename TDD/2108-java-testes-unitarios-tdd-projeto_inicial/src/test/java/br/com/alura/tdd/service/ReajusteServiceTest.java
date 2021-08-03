@@ -19,5 +19,23 @@ class ReajusteServiceTest {
 		service.concederReajuste(func, Desempenho.A_DESEJAR);
 		assertEquals(new BigDecimal("1030.00"), func.getSalario());
 	}
+	
+	@Test
+	void reajusteDeveriaSerDe15PorCento() {
+		ReajusteService service = new ReajusteService();
+		Funcionario func = new Funcionario("Ana", LocalDate.now(), new BigDecimal("1000"));
+		
+		service.concederReajuste(func, Desempenho.BOM);
+		assertEquals(new BigDecimal("1150.00"), func.getSalario());
+	}
+	
+	@Test
+	void reajusteDeveriaSerDe20PorCento() {
+		ReajusteService service = new ReajusteService();
+		Funcionario func = new Funcionario("Ana", LocalDate.now(), new BigDecimal("1000"));
+		
+		service.concederReajuste(func, Desempenho.OTIMO);
+		assertEquals(new BigDecimal("1200.00"), func.getSalario());
+	}
 
 }

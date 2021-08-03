@@ -10,6 +10,12 @@ public class ReajusteService {
 		if(desempenho == Desempenho.A_DESEJAR) {
 			BigDecimal reajuste = func.getSalario().multiply(new BigDecimal("0.03"));
 			func.reajustarSalario(reajuste);
+		} else if(desempenho == Desempenho.BOM) {
+			BigDecimal reajuste = func.getSalario().multiply(new BigDecimal("0.15"));
+			func.reajustarSalario(reajuste);
+		} else {
+			BigDecimal reajuste = func.getSalario().multiply(new BigDecimal("0.2"));
+			func.reajustarSalario(reajuste);
 		}
 	}
 
