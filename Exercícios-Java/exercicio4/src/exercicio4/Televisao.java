@@ -11,34 +11,34 @@ public class Televisao {
 		this.canalAtual = 12;
 	}
 	
-	public void volumeMais(int aumentar) throws Exception {
-		if((volume + (aumentar/aumentar)) <= 100) {
-			volume += (aumentar/aumentar);
+	public void volumeMais(Controle c) throws Exception {
+		if((volume + c.controlaTV()) <= 100) {
+			volume += c.controlaTV();
 		} else {
 			throw new Exception("A TV já está no volume máximo!!");
 		}
 	}
 	
-	public void volumeMenos(int diminuir) throws Exception {
-		if((volume - (diminuir/diminuir)) >= 0) {
-			volume -= (diminuir/diminuir);
+	public void volumeMenos(Controle c) throws Exception {
+		if((volume + c.controlaTV()) >= 0) {
+			volume += c.controlaTV();
 		} else {
 			throw new Exception("A TV já está mutada!!");
 		}
 	}
 	
 	//Assumindo que a TV possui 59 canais
-	public void canalMais(int sobeCanal) {
-		if((canalAtual + (sobeCanal/sobeCanal)) <= 59) {
-			canalAtual += (sobeCanal/sobeCanal);
+	public void canalMais(Controle c) {
+		if((canalAtual + c.controlaTV()) <= 59) {
+			canalAtual += c.controlaTV();
 		} else {
 			canalAtual = 1;
 		}
 	}
 	
-	public void canalMenos(int desceCanal) {
-		if(canalAtual - (desceCanal/desceCanal) >= 1) {
-			canalAtual -= (desceCanal/desceCanal);
+	public void canalMenos(Controle c) {
+		if(canalAtual + c.controlaTV() >= 1) {
+			canalAtual += c.controlaTV();
 		} else {
 			canalAtual = 59;
 		}
@@ -48,6 +48,14 @@ public class Televisao {
 		if(canal >= 1 && canal <= 59) {
 			canalAtual = canal;
 		}
+	}
+	
+	public int getVolume() {
+		return this.volume;
+	}
+	
+	public int getCanalAtual() {
+		return this.canalAtual;
 	}
 	
 	@Override
