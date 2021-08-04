@@ -3,7 +3,7 @@ package br.com.alura.tdd.service;
 import static org.junit.Assert.assertEquals;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import br.com.alura.tdd.modelo.Desempenho;
@@ -14,10 +14,17 @@ class ReajusteServiceTest {
 	private ReajusteService service;
 	private Funcionario func;
 	
+	//Chama a função antes da execução cada método
 	@BeforeEach
 	public void inicializar() {
 		this.service = new ReajusteService();
 		this.func = new Funcionario("Ana", LocalDate.now(), new BigDecimal("1000"));
+	}
+	
+	//Chama a função depois da execução de cada método
+	@AfterEach
+	public void finalizar() {
+		System.out.println("Fim!");
 	}
 
 	@Test
