@@ -3,7 +3,10 @@ package br.com.alura.tdd.service;
 import static org.junit.Assert.assertEquals;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import br.com.alura.tdd.modelo.Desempenho;
@@ -26,6 +29,19 @@ class ReajusteServiceTest {
 	public void finalizar() {
 		System.out.println("Fim!");
 	}
+	
+	//Chama a função uma vez antes de executar qualquer método
+	@BeforeAll
+	public static void antesDeTodos() {
+		System.out.println("Antes de todos");
+	}
+	
+	//Chama a função uma vez depois de executar os métodos
+	@AfterAll
+	public static void depoisDeTodos() {
+		System.out.println("Depois de todos");
+	}
+
 
 	@Test
 	void reajusteDeveriaSerDe3PorCento() {
