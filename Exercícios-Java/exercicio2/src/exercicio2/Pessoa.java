@@ -17,7 +17,7 @@ public class Pessoa {
 		try {
 			this.dataNascimento = formato.parse(dataNascimento);
 		} catch (ParseException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		this.altura = altura;
 	}

@@ -21,7 +21,7 @@ public class TestaAgenda {
 //		a.removePessoa("Luiza");
 //		a.imprimirAgenda();
 		a.buscaPeloIndex(1);
-		a.buscaPeloNome("Raphael");
+//		a.buscaPeloNome("Raphael");
 	}
 
 }

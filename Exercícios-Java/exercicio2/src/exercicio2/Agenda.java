@@ -1,39 +1,29 @@
 package exercicio2;
 import java.util.ArrayList;
-//import java.util.List;
+import java.util.Collection;
+import java.util.stream.Stream;
 
 public class Agenda {
 	
-	private ArrayList<Pessoa> agenda = new ArrayList<Pessoa>();
+	private Collection<Pessoa> agenda = new ArrayList<Pessoa>();
 	
 	public void armazenaPessoa(String nome, String data, int altura) {
-		Pessoa p = new Pessoa(nome, data, altura);
-		agenda.add(p);
+		agenda.add(new Pessoa(nome, data, altura));
 	}
 	
 	public void removePessoa(String nome) {
-		for(int i = 0; i < agenda.size(); i++) {
-			if(agenda.get(i).getNome() == nome) {
-				agenda.remove(i);
-			}
-		}
+		agenda.removeIf(pessoa -> pessoa.getNome() == nome);
 	}
 	
 	public void buscaPeloNome(String nome) {
-		for(int i = 0; i < agenda.size(); i++) {
-			if(agenda.get(i).getNome() == nome) {
-				System.out.println(nome + " está na posição " + (i + 1));
-			}
-		}
+		agenda.stream().filter(p -> p.getNome() == nome).forEach(Pessoa::imprimeDados);
 	}
-	
+
 	public void imprimirAgenda() {
-		for(Pessoa p : agenda) {
-			p.imprimeDados();
-		}
+		agenda.stream().forEach(Pessoa::imprimeDados);
 	}
 	
 	public void buscaPeloIndex(int i) {
-		agenda.get(i - 1).imprimeDados();
+		 ((ArrayList<Pessoa>) agenda).get(i - 1).imprimeDados();
 	}
 }
