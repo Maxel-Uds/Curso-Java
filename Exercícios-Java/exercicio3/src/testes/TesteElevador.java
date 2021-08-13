@@ -1,4 +1,6 @@
-package exercicio3;
+package testes;
+
+import exercicio3.Elevador;
 
 public class TesteElevador {
 
@@ -9,16 +11,16 @@ public class TesteElevador {
 		//elevador.Sai(1);
 		//elevador.Desce(1);
 		//elevador.Entra(7);
-		elevador.Entra(5);
-		elevador.Sobe(5);
+		elevador.entrarPessoa(5);
+		elevador.subir(5);
 		
-		elevador.Sai(3);
-		elevador.Sobe(5);
+		elevador.tirarPessoa(3);
+		elevador.subir(5);
 		
-		elevador.Entra(4);
-		elevador.Desce(10);
+//		elevador.entrarPessoa(4);
+//		elevador.descer(10);
 		
-		elevador.Sai(6);
+//		elevador.tirarPessoa(6);
 		System.out.println(elevador);
 	}
 
