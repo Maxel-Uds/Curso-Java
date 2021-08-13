@@ -16,7 +16,7 @@ class TesteTelevisao {
 	}
 	
 	@Test
-	void aumentaOVolumeUmaUnidade() {
+	void quandoAumentaOVolumeUmaUnidadeRetornaSucesso() {
 		try {
 			tv.volumeMais(Controle.MAIS);
 			assertEquals(21, tv.getVolume());
@@ -26,7 +26,7 @@ class TesteTelevisao {
 	}
 	
 	@Test
-	void diminuiOVolumeUmaUnidade() {
+	void quandoDiminuiOVolumeUmaUnidadeRetornaSucesso() {
 		try {
 			tv.volumeMais(Controle.MENOS);
 			assertEquals(19, tv.getVolume());
@@ -36,7 +36,7 @@ class TesteTelevisao {
 	}
 	
 	@Test
-	void aumentaOCanalUmaUnidade() {
+	void quandoAumentaOCanalUmaUnidadeRetornaSucesso() {
 		try {
 			tv.canalMais(Controle.MAIS);
 			assertEquals(13, tv.getCanalAtual());
@@ -46,7 +46,7 @@ class TesteTelevisao {
 	}
 	
 	@Test
-	void diminuiOCanalUmaUnidade() {
+	void quandoDiminuiOCanalUmaUnidadeRetornaSucesso() {
 		try {
 			tv.canalMenos(Controle.MENOS);
 			assertEquals(11, tv.getCanalAtual());
@@ -56,7 +56,7 @@ class TesteTelevisao {
 	}
 	
 	@Test
-	void irParaCanal() {
+	void quandoDigitarOCanalIndicadoVaiParaCanalERetornaSucesso() {
 		try {
 			tv.irPara(59);
 			assertEquals(59, tv.getCanalAtual());
@@ -66,7 +66,7 @@ class TesteTelevisao {
 	}
 	
 	@Test
-	void naoPodePassarDeCem() {
+	void seOVolumePassarDeCemRetornaUmaExcecao() {
 		try {
 			for(int i = tv.getVolume(); i <=101; i++) {
 				tv.volumeMais(Controle.MAIS);
@@ -78,7 +78,7 @@ class TesteTelevisao {
 	}
 	
 	@Test
-	void naoPodePassarDeZero() {
+	void seOVolumePassarDeZeroRetornaUmaExcecao() {
 		try {
 			for(int i = tv.getVolume(); i >= -1; i--) {
 				tv.volumeMenos(Controle.MENOS);
