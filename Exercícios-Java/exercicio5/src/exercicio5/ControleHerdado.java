@@ -11,42 +11,47 @@ public class ControleHerdado extends Controle {
 	private int qtdPluviometros;
 	private static ArrayList<Caminhao> caminhao = new ArrayList<Caminhao>();
 	
-	public void cadastraCaminhao() {
+	private void validarCaminhao(String text) throws Exception {
+		if(!tipo.equals("Alfa") && !tipo.equals("Beta") && !tipo.equals("fim") && !tipo.equals("Fim")) {
+			throw new Exception("Erro: Tipo de caminhão inválido! Tente Novamente.");
+		}
+	}
+	
+	private void validarPluviometros(int qtde) throws Exception {
+		if(qtde <= 0) {
+			throw new Exception("Erro: A quantidade não pode ser 0 nem negativa!");
+		} else {
+			qtdPluviometros = qtde;
+		}
+	}
+	
+	private Collection<String> adicionarTipoPluviometro() {
+		String[] tipos = leString().split(" ");
+		Collection<String> pluviometros = new ArrayList<String>();
+		for (String t : tipos) {
+			pluviometros.add(t);
+		}
+		return pluviometros;		
+	}
+	
+	public void cadastraCaminhao() throws Exception {
 		while(!tipo.equals("Fim") && !tipo.equals("fim")) {
-			do {
-				System.out.println("Tipo do caminhão (Beta/Alfa), ou digite Fim para terminar: ");
-				tipo = leString();
-				
-				if(tipo.equals("Fim") || tipo.equals("fim")) {
-					break;
-				} else if(!tipo.equals("Alfa") && !tipo.equals("Beta")) {
-					System.out.println("Erro: Tipo inválido! Tente Novamente.");
-				}
-				
-			} while(!tipo.equals("Alfa") && !tipo.equals("Beta"));
+			
+			System.out.println("Tipo do caminhão (Beta/Alfa), ou digite Fim para terminar: ");
+			tipo = leString();
+			validarCaminhao(tipo);				
 			
 			if(tipo.equals("Fim") || tipo.equals("fim")) {
 				break;
 			}
 			
-			do {
-				System.out.println("Quantidade de pluviometros a serem transportados: ");
-				qtdPluviometros = leInt();
-				
-				if(qtdPluviometros <= 0) {
-					System.out.println("Erro: A quantidade não pode ser 0 nem negativa!");
-				}
-			
-			} while(qtdPluviometros <= 0);
-			
+			System.out.println("Quantidade de pluviometros a serem transportados: ");
+			validarPluviometros(leInt());
+							
 			System.out.println("Tipos de pluviometros a serem transportados (digite os tipos separando com espaços): ");
-			String[] tipos = leString().split(" ");
-			Collection<String> pluviometros = new ArrayList<String>();
-			for (String t : tipos) {
-				pluviometros.add(t);
-			}
 			
-			caminhao.add(new Caminhao(tipo, qtdPluviometros, pluviometros));
+			caminhao.add(new Caminhao(tipo, qtdPluviometros, adicionarTipoPluviometro()));
+			
 		}
 	}
 		
