@@ -2,12 +2,11 @@ package exercicio5;
 
 public class Teste {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 
 		ControleHerdado control = new ControleHerdado();
 		
 		control.cadastraCaminhao();
-		ControleHerdado.melhorCaminhao();
 	}
 
 }

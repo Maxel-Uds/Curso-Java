@@ -11,17 +11,19 @@ public class ControleHerdado extends Controle {
 	private int qtdPluviometros;
 	private static ArrayList<Caminhao> caminhao = new ArrayList<Caminhao>();
 	
-	private void validarCaminhao(String text) throws Exception {
-		if(!tipo.equals("Alfa") && !tipo.equals("Beta") && !tipo.equals("fim") && !tipo.equals("Fim")) {
-			throw new Exception("Erro: Tipo de caminhão inválido! Tente Novamente.");
+	private void validarCaminhao() {
+		while(!tipo.equals("Alfa") && !tipo.equals("Beta") && !tipo.equals("fim") && !tipo.equals("Fim")) {
+			System.out.println("Erro: Tipo de caminhão inválido! Tente Novamente.");
+			System.out.println("Tipo do caminhão (Beta/Alfa), ou digite Fim para terminar:");
+			tipo = leString();
 		}
 	}
 	
-	private void validarPluviometros(int qtde) throws Exception {
-		if(qtde <= 0) {
-			throw new Exception("Erro: A quantidade não pode ser 0 nem negativa!");
-		} else {
-			qtdPluviometros = qtde;
+	private void validarPluviometros(){
+		while(qtdPluviometros <= 0) {
+			System.out.println("Erro: A quantidade não pode ser 0 nem negativa!");
+			System.out.println("Quantidade de pluviometros a serem transportados: ");
+			qtdPluviometros = leInt();
 		}
 	}
 	
@@ -34,31 +36,35 @@ public class ControleHerdado extends Controle {
 		return pluviometros;		
 	}
 	
-	public void cadastraCaminhao() throws Exception {
+	private static void melhorCaminhao() {
+		Collections.sort((List<Caminhao>) caminhao);
+		Collections.reverse(caminhao);
+		System.out.println(caminhao.get(0));
+	}
+	
+	public void cadastraCaminhao() {
 		while(!tipo.equals("Fim") && !tipo.equals("fim")) {
 			
 			System.out.println("Tipo do caminhão (Beta/Alfa), ou digite Fim para terminar: ");
 			tipo = leString();
-			validarCaminhao(tipo);				
+			validarCaminhao();				
 			
 			if(tipo.equals("Fim") || tipo.equals("fim")) {
 				break;
 			}
 			
 			System.out.println("Quantidade de pluviometros a serem transportados: ");
-			validarPluviometros(leInt());
+			qtdPluviometros = leInt();
+			validarPluviometros();
 							
 			System.out.println("Tipos de pluviometros a serem transportados (digite os tipos separando com espaços): ");
 			
 			caminhao.add(new Caminhao(tipo, qtdPluviometros, adicionarTipoPluviometro()));
 			
 		}
-	}
 		
-	public static void melhorCaminhao() {
-		Collections.sort((List<Caminhao>) caminhao);
-		Collections.reverse(caminhao);
-		System.out.println(caminhao.get(0));
-	}
-	
+		if(caminhao.size() > 0) {
+			melhorCaminhao();
+		}
+	}				
 }
