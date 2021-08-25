@@ -32,9 +32,9 @@ public class FinalizarLeilaoServiceTest {
 		Assert.assertTrue(todos.isEmpty());
 	}
 	
-	@Test
-	public void deveriaFinalizarUmLeilao() {
-		
-	}
+//	@Test
+//	public void deveriaFinalizarUmLeilao() {
+//		service.finalizarLeiloesExpirados();
+//	}
 	
 }
