@@ -1,0 +1,88 @@
+openapi: 3.0.1
+info:
+  title: API de Consultório
+  description: API para controlar médicops e suas especialidades dentro do consultório.
+  version: 0.0.1
+  termsOfService: https://mockapi.io
+  contact:
+    name: Suporte Devs
+    email: contato@exemplo.com
+    url: https://mockapi.io
+  license:
+    name: GPLv3
+    url: https://mockapi.io
+externalDocs:
+  description: Documentação Burocratica
+  url: https://mockapi.io
+servers: 
+- url: https://editor.swagger.io/
+  description: API de teste
+paths:
+  /especialidades:
+    get:
+      summary: Recupera todas as especialidades
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Especialidades"
+    post:
+      summary: Cria nova especialidade
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                descricao: 
+                  type: string
+      responses:
+        201:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                  $ref: "#/components/schemas/Especialidade"
+  /especialidades/{id}:
+    get:
+      summary: Recupera uma entidade pelo id
+      parameters: 
+      - name: id
+        in: path
+        schema: 
+          type: integer
+        required: true
+      responses:
+          200:
+            description: Sucesso
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Especialidade"
+          404:
+            description: Especialidade não encontrada
+            content:
+              application/json:
+                example: "Not found"
+security: 
+- auth: []
+components:
+  schemas:
+    Especialidade:
+      type: object
+      properties:
+        id:
+          type: integer
+        descricao:
+          type: string
+    Especialidades:
+      type: array
+      items:
+        $ref: "#/components/schemas/Especialidade"
+  securitySchemes:
+    auth: 
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
