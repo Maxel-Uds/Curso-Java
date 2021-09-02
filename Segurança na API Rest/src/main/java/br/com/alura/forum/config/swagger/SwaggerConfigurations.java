@@ -3,6 +3,8 @@ package br.com.alura.forum.config.swagger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Arrays;
+
 @Configuration
 public class SwaggerConfigurations {
 
@@ -13,7 +15,16 @@ public class SwaggerConfigurations {
                 .apis(RequestHandlerSelectors.basePackage("br.com.alura.forum"))
                 .paths(PathSelectors.ant("/**"))
                 .build()
-                .ignoredParameterTypes(Usuario.class);
+                .ignoredParameterTypes(Usuario.class)
+                .globalOperationParameters(
+                        Arrays.asList(
+                                new ParameterBuilder()
+                                        .name("Authorization")
+                                        .description("Header para Token JWT")
+                                        .modelRef(new ModelRef("string"))
+                                        .parameterType("header")
+                                        .required(false)
+                                        .build()));
     }
 
 }
