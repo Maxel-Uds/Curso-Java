@@ -2,11 +2,14 @@ package model;
 
 import enums.ClassType;
 
-public class Address {
+public class Address extends Type {
 
     private String street;
     private Integer number;
-    private ClassType type;
+
+    public Address(ClassType type) {
+        super(type);
+    }
 
     public Address withStreet(String street) {
         this.street = street;
@@ -18,21 +21,12 @@ public class Address {
         return this;
     }
 
-    public Address withType(ClassType type) {
-        this.type = type;
-        return this;
-    }
-
     public String getStreet() {
         return street;
     }
 
     public Integer getNumber() {
         return number;
-    }
-
-    public ClassType getType() {
-        return type;
     }
 
     public Address build() {

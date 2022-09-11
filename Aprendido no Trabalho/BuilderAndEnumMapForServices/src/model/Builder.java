@@ -48,7 +48,7 @@ public class Builder {
         return this;
     }
 
-    public Object build() {
+    public Type build() {
 
         if (Objects.isNull(type)) {
             throw new IllegalArgumentException("O tipo do objeto não pode ser nulo");
@@ -56,22 +56,19 @@ public class Builder {
 
         switch (type) {
             case PEOPLE:
-                return new People()
+                return new People(type)
                     .withName(name)
                     .withEmail(email)
-                    .withType(type)
                     .build();
             case ADDRESS:
-                return new Address()
+                return new Address(type)
                     .withStreet(street)
                     .withNumber(number)
-                    .withType(type)
                     .build();
             case VEHICLE:
-                return new Vehicle()
+                return new Vehicle(type)
                     .withPrice(price)
                     .withVehicleModel(vehicleModel)
-                    .withType(type)
                     .build();
             default:
                 throw new IllegalArgumentException("Tipo de objeto não suportado!");

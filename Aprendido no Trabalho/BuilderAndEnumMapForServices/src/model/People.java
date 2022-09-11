@@ -2,11 +2,14 @@ package model;
 
 import enums.ClassType;
 
-public class People {
+public class People extends Type {
 
     private String name;
     private String email;
-    private ClassType type;
+
+    public People(ClassType type) {
+        super(type);
+    }
 
     public People withName(String name) {
         this.name = name;
@@ -18,21 +21,12 @@ public class People {
         return this;
     }
 
-    public People withType(ClassType type) {
-        this.type = type;
-        return this;
-    }
-
     public String getName() {
         return name;
     }
 
     public String getEmail() {
         return email;
-    }
-
-    public ClassType getType() {
-        return type;
     }
 
     public People build() {

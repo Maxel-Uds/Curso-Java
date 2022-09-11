@@ -1,6 +1,8 @@
 package service;
 
-public abstract class GenericService<Object> {
+import model.Type;
 
-    public abstract void printClass(Object clazz);
+public abstract class GenericService<C extends Type> {
+
+    public abstract void printClass(C clazz);
 }

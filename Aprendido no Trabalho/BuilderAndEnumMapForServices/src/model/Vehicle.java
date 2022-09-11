@@ -2,11 +2,14 @@ package model;
 
 import enums.ClassType;
 
-public class Vehicle {
+public class Vehicle extends Type {
 
     private String vehicleModel;
     private Double price;
-    private ClassType type;
+
+    public Vehicle(ClassType type) {
+        super(type);
+    }
 
     public Vehicle withVehicleModel(String vehicleModel) {
         this.vehicleModel = vehicleModel;
@@ -18,21 +21,12 @@ public class Vehicle {
         return this;
     }
 
-    public Vehicle withType(ClassType type) {
-        this.type = type;
-        return this;
-    }
-
     public String getVehicleModel() {
         return vehicleModel;
     }
 
     public Double getPrice() {
         return price;
-    }
-
-    public ClassType getType() {
-        return type;
     }
 
     public Vehicle build() {
